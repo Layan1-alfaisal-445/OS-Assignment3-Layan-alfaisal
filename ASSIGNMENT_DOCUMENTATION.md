@@ -1,8 +1,8 @@
 # Assignment 3 - Complete Documentation
 
-**Student Name**: [Your Full Name]  
-**Student ID**: [Your ID]  
-**Date Submitted**: [Submission Date]
+**Student Name**: layan faisal alfaisal  
+**Student ID**: 445052190
+**Date Submitted**: 4-5-2026
 
 ---
 
@@ -31,42 +31,42 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
-**What I implemented**: 
+### Entry 1 - [3-5-2026, 4pm]
+**What I implemented**: Defined synchronization objects in SharedResources, including ReentrantLock for counters and a Semaphore for CPU access
 
-**Challenges encountered**: 
+**Challenges encountered**:Protecting shared variables like completedProcessCount from concurrent access errors
 
-**How I solved it**: 
+**How I solved it**: Applied lock() before critical sections and ensured thread safety for shared resources
 
-**Testing approach**: 
+**Testing approach**: Verified that the synchronization objects were correctly initialized in the SharedResources class
 
-**Time spent**: 
-
----
-
-### Entry 2 - [Date, Time]
-**What I implemented**: 
-
-**Challenges encountered**: 
-
-**How I solved it**: 
-
-**Testing approach**: 
-
-**Time spent**: 
+**Time spent**: 1 hours
 
 ---
 
-### Entry 3 - [Date, Time]
-**What I implemented**: 
+### Entry 2 - [3-5-2026, 5pm]
+**What I implemented**: Integrated try-finally blocks within the increment methods incrementCompletedProcess, addWaitingTime to manage locks
 
-**Challenges encountered**: 
+**Challenges encountered**: Risk of leaving a lock "held" if an error occurred, which would freeze the simulation
 
-**How I solved it**: 
+**How I solved it**: Placed the unlock() method strictly inside the finally block to guarantee the lock is always released
 
-**Testing approach**: 
+**Testing approach**:  Ran the code to ensure that no "Deadlock" occurred during multiple process transitions
 
-**Time spent**: 
+**Time spent**: 2 hours
+
+---
+
+### Entry 3 - [3-5-2026, 7pm]
+**What I implemented**: Implemented error handling using try-catch-finally for the Semaphore acquisition in the run() method
+
+**Challenges encountered**: Handling InterruptedException when a process is waiting for its turn on the CPU
+
+**How I solved it**: Added catch (InterruptedException e) to log errors and used finally { cpuSemaphore.release(); } to ensure the CPU slot is freed
+
+**Testing approach**: Used my Student ID (445052190) as the seed to generate a stable simulation and verified the final execution logs
+
+**Time spent**: 1 hours
 
 ---
 
